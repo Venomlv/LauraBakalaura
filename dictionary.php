@@ -12,6 +12,7 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$href3 = '/newrozes/';
 	$href4 = '/contact/';
 	$href5 = '/login';
+	$href6 = '/basket';
 	$aboutme = '"Добрый день, дорогой поситететь.<br>
 	Меня зовут Лаура, я являюсь<br> владелицей магазина <b font-color"orange">Rozes no Latvijas</b>.<br>
 	Учусь в Даугавпилсском <br>Университете на программиста"';
@@ -24,7 +25,9 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$kluda1 = 'Почта занята';
 	$kluda2 = 'Почти имела не правильный формат';
 	$kluda3 = 'Пароль слишком короткий';
+	$kluda4 = 'Неправильный логин или пароль';
 	$goodreg = 'Вы зарегистрированы!';
+	$jauinside = 'Вы уже авторизированы';
 }
 else
 {
@@ -38,6 +41,7 @@ else
 	$href3 = '/newrozes/';
 	$href4 = '/contact/';
 	$href5 = '/login';
+	$href6 = '/basket';
 	$next = 'Turpināt';
 	$aboutme = '"Добрый день, дорогой поситететь.<br>
 	Меня зовут Лаура, я являюсь<br> владелицей магазина <b style="color:orange">Rozes no Latvijas</b>.<br>
@@ -51,5 +55,7 @@ else
 	$kluda1 = 'Почта занята';
 	$kluda2 = 'Почти имела не правильный формат';
 	$kluda3 = 'Пароль слишком короткий';
+	$kluda4 = 'Неправильный логин или пароль';
 	$goodreg = 'Вы зарегистрированы!';
+	$jauinside = 'Вы уже авторизированы';
 }

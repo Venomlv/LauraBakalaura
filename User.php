@@ -33,4 +33,25 @@ class User
 		return ($user['COUNT(*)'] > 0) ? (true) : (false);
 	}
 	
+	public static function CheckUserData($email,$password)
+	{
+		$password = md5($password);
+		
+		$db = Db::getConnection();
+		$sql = "SELECT uid FROM users WHERE umail = '$email' AND upassword = '$password'";
+		$result = $db->query($sql);		
+		$user = $result->fetch_assoc();
+		
+		return $user['uid'] ? (true) : (false);
+	}
+	
+	public static function GetUserId($email)
+	{
+		$db = Db::getConnection();
+		$sql = "SELECT uid FROM users WHERE umail = '$email'";
+		$result = $db->query($sql);		
+		$user = $result->fetch_assoc();
+		
+		return $user['uid'];
+	}
 }

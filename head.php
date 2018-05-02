@@ -7,4 +7,5 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
 	<title>Internet veikals</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php session_start();?>
 </head>

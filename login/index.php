@@ -25,6 +25,21 @@
 			User::SignUp($email,$password);
 		
 	}
+	else if(isset($_POST['signin']))
+	{
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$errors = false;
+		
+		if(!User::CheckUserData($email,$password))
+			$errors[] = $kluda4;
+		if(!$errors)
+		{
+			$uid = User::GetUserId($email);
+			$_SESSION['user'] = $uid;
+			header("Location: /");
+		}
+	}
 ?>
 
 <body class="maxSize">
@@ -40,9 +55,16 @@
 			<a href="<?php echo $href3.''.$currentlang; ?>"><?php echo $newrozes; ?></a>
 			<a class="active" href="<?php echo $href1.''.$currentlang; ?>"><?php echo $catalog; ?></a>
 			<a href="<?php echo $href4.''.$currentlang; ?>"><?php echo $contacts; ?></a>
-			<a href="<?php echo $href5.''.$currentlang; ?>"><i class="fas fa-user-plus"></i></a>
+			<?php if(!isset($_SESSION['user'])):?>
+				<a href="<?php echo $href5.''.$currentlang; ?>"><i class="fas fa-user-plus"></i></a>
+			<?php else: ?>
+				<a href="<?php echo $href6.''.$currentlang; ?>"><i class="fas fa-shopping-cart"></i></a>
+			<?php endif; ?>
 		</div>
 		<div id="registration">
+				<?php if(isset($_SESSION['user'])):?>
+					<div class="error-info"><?php echo $jauinside; ?></div>
+				<?php else: ?>
 				<h3><?php echo $prereg; ?></h3>
 				<form class="form-control" method="POST">
 					<input class="form-input" name="email" placeholder="E - mail" type="text">
@@ -50,6 +72,7 @@
 					<input class="myBtn reg" type="submit" name="signup" value="<?php echo $reg; ?>">
 					<input class="myBtn" type="submit" name="signin" value="<?php echo $log; ?>">
 				</form>
+				<?php endif; ?>
 			</div>
 		</div>
 		<?php $sc = 20; if(isset($errors)&& is_array($errors)): ?>
