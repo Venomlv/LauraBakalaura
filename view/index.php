@@ -49,6 +49,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="enf noselect good" style="top:10px;" hidden><?php echo $zakazdone; ?></div>
 	</div>
 </body>
 

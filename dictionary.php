@@ -29,6 +29,7 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$goodreg = 'Вы зарегистрированы!';
 	$jauinside = 'Вы уже авторизированы';
 	$zakaz = 'Заказать';
+	$zakazdone = 'Заказ сделан';
 }
 else
 {
@@ -60,4 +61,5 @@ else
 	$goodreg = 'Вы зарегистрированы!';
 	$jauinside = 'Вы уже авторизированы';
 	$zakaz = 'Заказать';
+	$zakazdone = 'Заказ сделан';
 }

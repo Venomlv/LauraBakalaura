@@ -4,6 +4,7 @@ $(document).ready(function(){
 				info = {theid: id}, el = $(this);
 			$.post(window.location.href, info, function(data){
 				el.hide();
+				$(".good").show();
 			});
 	});
 });
