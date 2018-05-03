@@ -334,3 +334,14 @@ button, input, *:hover {
 	box-sizing: border-box;
 	padding-top: 38%;
 }
+
+.order-button{
+	width: 150px;
+	padding: 5px;
+	margin: 0px 0px 0px 80px;
+	position: relative;
+}
+	.order-button:hover{
+		background: green;
+		border: 3px solid green;
+	}

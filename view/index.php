@@ -5,6 +5,14 @@
 	require_once($_SERVER["DOCUMENT_ROOT"].'/db.php'); 
 	require_once($_SERVER["DOCUMENT_ROOT"].'/dictionary.php'); 
 	require_once($_SERVER["DOCUMENT_ROOT"].'/Rozes.php'); 
+	require_once($_SERVER["DOCUMENT_ROOT"].'/Order.php'); 
+?>
+
+<?php
+	if(isset($_POST['theid']))
+	{
+		echo 'kiskis';
+	}
 ?>
 
 <body class="maxSize">
@@ -34,6 +42,11 @@
 				<?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['describeru'] : $roze['describelv']; ?>
 				<div class="wide"><?php echo $vel; echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rtextru'] : $roze['rtextlv']; ?></div>
 				<div class="cost"><?php echo $cost; echo $roze['rprice'].' €'; ?></div>
+				<div class="cost">
+					<?php if(isset($_SESSION['user']) && !Order::isOrdered($roze['rid'],$_SESSION['user'])): ?>
+						<button class="order-button" id="do-order" data-id="<?php echo $roze['rid']; ?>"><?php echo $zakaz; ?></button>
+					<?php endif; ?>
+				</div>
 			</div>
 		</div>
 	</div>
