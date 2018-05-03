@@ -29,7 +29,7 @@
 		<div id="mainInside">
 			<?php $roze = Rozes::getCertainRoze($_GET['id']); ?>
 			<div class="rozeTop"><?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rnameru'] : $roze['rnamelv']; ?></div>
-			<div class="rozeThum"><img src="<?php echo $roze['rimage']; ?>"></div>
+			<div class="rozeThum"><img src="/img/rozes/<?php echo $roze['rimage']; ?>"></div>
 			<div class="rozeInfo">
 				<?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['describeru'] : $roze['describelv']; ?>
 				<div class="wide"><?php echo $vel; echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rtextru'] : $roze['rtextlv']; ?></div>
