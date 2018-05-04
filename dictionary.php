@@ -13,6 +13,7 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$href4 = '/contact/';
 	$href5 = '/login';
 	$href6 = '/basket';
+	$href7 = '/popular';
 	$aboutme = '"Добрый день, дорогой поситететь.<br>
 	Меня зовут Лаура, я являюсь<br> владелицей магазина <b font-color"orange">Rozes no Latvijas</b>.<br>
 	Учусь в Даугавпилсском <br>Университете на программиста"';
@@ -33,6 +34,7 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$kludaName = 'Ошибка';
 	$roseEmpty = 'Розы не существует';
 	$manpatik = 'Мне нравится';
+	$popular = 'Популярные';
 }
 else
 {
@@ -47,6 +49,7 @@ else
 	$href4 = '/contact/';
 	$href5 = '/login';
 	$href6 = '/basket';
+	$href7 = '/popular';
 	$next = 'Turpināt';
 	$aboutme = '"Добрый день, дорогой поситететь.<br>
 	Меня зовут Лаура, я являюсь<br> владелицей магазина <b style="color:orange">Rozes no Latvijas</b>.<br>
@@ -68,4 +71,5 @@ else
 	$kludaName = 'Ошибка';
 	$roseEmpty = 'Розы не существует';
 	$manpatik = 'Мне нравится';
+	$popular = 'Populārākie';
 }

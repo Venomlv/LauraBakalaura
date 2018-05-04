@@ -4,6 +4,15 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/Db.php');
 
 class Rozes
 {
+	public static function getPopularRozes()
+	{
+		$db = Db::getConnection();
+		$sql = "SELECT COUNT(*),roses.rnameru, roses.rnamelv, roses.rimage, roses.rid FROM `likes`, `roses`".' '.
+			   "WHERE roses.rid = likes.rid GROUP BY roses.rnameru ORDER BY COUNT(*) DESC LIMIT 9";
+		$result = $db->query($sql);		
+		return $result;
+	}
+	
 	public static function getTenRozes()
 	{
 		$db = Db::getConnection();
