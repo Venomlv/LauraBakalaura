@@ -30,6 +30,8 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$jauinside = 'Вы уже авторизированы';
 	$zakaz = 'Заказать';
 	$zakazdone = 'Заказ сделан';
+	$kludaName = 'Ошибка';
+	$roseEmpty = 'Розы не существует';
 }
 else
 {
@@ -62,4 +64,6 @@ else
 	$jauinside = 'Вы уже авторизированы';
 	$zakaz = 'Заказать';
 	$zakazdone = 'Заказ сделан';
+	$kludaName = 'Ошибка';
+	$roseEmpty = 'Розы не существует';
 }

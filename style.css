@@ -345,3 +345,7 @@ button, input, *:hover {
 		background: green;
 		border: 3px solid green;
 	}
+	
+.centered-text{
+	text-align: center;
+}

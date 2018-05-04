@@ -11,7 +11,7 @@
 <?php
 	if(isset($_POST['theid']))
 	{
-		echo 'kiskis';
+		Order::DoneOrder($_POST['theid'],$_SESSION['user']);
 	}
 ?>
 
@@ -36,6 +36,7 @@
 		</div>
 		<div id="mainInside">
 			<?php $roze = Rozes::getCertainRoze($_GET['id']); ?>
+			<?php if($roze != NULL): ?>
 			<div class="rozeTop"><?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rnameru'] : $roze['rnamelv']; ?></div>
 			<div class="rozeThum"><img src="/img/rozes/<?php echo $roze['rimage']; ?>"></div>
 			<div class="rozeInfo">
@@ -48,6 +49,10 @@
 					<?php endif; ?>
 				</div>
 			</div>
+			<?php else: ?>
+				<div class="rozeTop"><?php echo $kludaName; ?></div>
+				<div class="rozeInfo centered-text maxSize"><?php echo $roseEmpty; ?></div>
+			<?php endif; ?>
 		</div>
 		<div class="enf noselect good" style="top:10px;" hidden><?php echo $zakazdone; ?></div>
 	</div>
