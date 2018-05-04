@@ -10,9 +10,13 @@
 
 <?php
 	if(isset($_POST['theid']))
-	{
 		Order::DoneOrder($_POST['theid'],$_SESSION['user']);
-	}
+	
+	if(isset($_POST['liked']))
+		if(!Rozes::getLike($_SESSION['user'], $_POST['liked'])) 
+			Rozes::setLike($_SESSION['user'], $_POST['liked']); 
+		else
+			Rozes::unLike($_SESSION['user'], $_POST['liked']);
 ?>
 
 <body class="maxSize">
@@ -39,6 +43,16 @@
 			<?php if($roze != NULL): ?>
 			<div class="rozeTop"><?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rnameru'] : $roze['rnamelv']; ?></div>
 			<div class="rozeThum"><img src="/img/rozes/<?php echo $roze['rimage']; ?>"></div>
+			<?php if(isset($_SESSION['user'])): ?>
+			<div class="like" id="do-like" data-id="<?php echo $roze['rid']; ?>">
+				<?php if(Rozes::getLike($_SESSION['user'], $roze['rid'])): ?>
+					<i class="fas fa-heart fa-15x"></i>
+				<?php else: ?>
+					<i class="far fa-heart fa-15x"></i>
+				<?php endif; ?>
+				<span><?php echo $manpatik; ?></span>
+			</div>
+			<?php endif; ?>
 			<div class="rozeInfo">
 				<?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['describeru'] : $roze['describelv']; ?>
 				<div class="wide"><?php echo $vel; echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rtextru'] : $roze['rtextlv']; ?></div>

@@ -32,6 +32,7 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$zakazdone = 'Заказ сделан';
 	$kludaName = 'Ошибка';
 	$roseEmpty = 'Розы не существует';
+	$manpatik = 'Мне нравится';
 }
 else
 {
@@ -66,4 +67,5 @@ else
 	$zakazdone = 'Заказ сделан';
 	$kludaName = 'Ошибка';
 	$roseEmpty = 'Розы не существует';
+	$manpatik = 'Мне нравится';
 }

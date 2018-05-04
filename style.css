@@ -349,3 +349,26 @@ button, input, *:hover {
 .centered-text{
 	text-align: center;
 }
+
+.like{
+	position: absolute;
+	left: 3%;
+	bottom: 7px;
+	color: red;
+}
+
+.like span{
+	color: #000;
+}
+
+.like i{
+	vertical-align: sub;
+}
+
+.like:hover{
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.fa-15x{
+	font-size: 1.5em;
