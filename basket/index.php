@@ -5,18 +5,22 @@
 	require_once($_SERVER["DOCUMENT_ROOT"].'/db.php'); 
 	require_once($_SERVER["DOCUMENT_ROOT"].'/dictionary.php'); 
 	require_once($_SERVER["DOCUMENT_ROOT"].'/Rozes.php');
-	require_once($_SERVER["DOCUMENT_ROOT"].'/Order.php'); 	
+	require_once($_SERVER["DOCUMENT_ROOT"].'/Order.php');
+	require_once($_SERVER["DOCUMENT_ROOT"].'/User.php');  	
 ?>
 
-<?
-	if(isset($_POST['progress'])
+<?php
+	if(isset($_POST['progress']))
 	{
-		echo 'kiskis';
+		$email = User::GetEmail($_SESSION['user']);
+		$tovar = array(); 
+		$tovar = Order::GetBasket($_SESSION['user']);
+		mail($email, 'Tovar', $tovar);
+		Order::ClearBasket($_SESSION['user']);
 	}		
 	
 	if(isset($_POST['theid']))
 	{
-		echo 'kiskis';
 		Order::DeleteItem($_POST['theid'], $_SESSION['user']);
 	}
 ?>
@@ -48,6 +52,7 @@
 		</div>
 		<div id="mainBlock">
 			<div id="mainInside" class="basket-list">
+				<div class="item-list">
 				<?php 
 					$orderlist = array(); 
 					$orderlist = Order::GetBasket($_SESSION['user']); 
@@ -66,6 +71,7 @@
 						</div>
 					</div>
 				<?php endforeach; ?>
+				</div>
 				<button class="order-button n-button" id="do-progress"><?php echo $zakaz; ?></button>
 			</div>
 		</div>

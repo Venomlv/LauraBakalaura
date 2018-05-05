@@ -17,19 +17,17 @@ $(document).ready(function(){
 			});
 	});
 	
-	$("#delete-item").on('click', function(){
-		var id = $(this).attr("data-id"),
-			deleteId = {theid: id},
+	$("#delete-item").click(function(){
+		var id = $(this).attr("data-id");
+		var deleteId = {theid: id},
 			el = $(this).parent();
 		
-		$.post(window.location.href, deleteId, function(){
-			el.hide();
-		});
+		$.post("/basket/", deleteId, function(){location.reload()});
 	});
 	
-	$("#do-progress").on('click', function(){
-		var doProgress = {progress: true};
+	$("#do-progress").click(function(){
+		var doProgress = {progress: 'ok'};
 		
-		$.post(window.location.href, doProgress);
+		$.post("/basket/", doProgress, function(){location.reload()});
 	});
 });

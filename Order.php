@@ -36,4 +36,11 @@ class Order
 		$sql = "DELETE FROM orders WHERE tid = $id AND uid = $uid";
 		$result = $db->query($sql);
 	}
+	
+	public static function ClearBasket($uid)
+	{
+		$db = Db::getConnection();
+		$sql = "DELETE FROM orders WHERE uid = $uid";
+		$result = $db->query($sql);
+	}
 }

@@ -23,6 +23,16 @@ class User
 		if(filter_var($email, FILTER_VALIDATE_EMAIL)) return true; else return false;
 	}
 	
+	public static function GetEmail($uid)
+	{
+		$db = Db::getConnection();
+		$sql = "SELECT umail FROM users WHERE uid = '$uid'";
+		$result = $db->query($sql);		
+		$user = $result->fetch_assoc();
+		
+		return $user['umail'];
+	}
+	
 	public static function CheckExistEmail($email)
 	{
 		$db = Db::getConnection();
