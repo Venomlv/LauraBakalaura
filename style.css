@@ -372,3 +372,42 @@ button, input, *:hover {
 
 .fa-15x{
 	font-size: 1.5em;
+}
+
+.basket-list{
+	width: 500px !important;
+	top: 35% !important;
+	left: 37% !important;
+}
+
+.item-order{
+	padding: 15px;
+	box-sizing: border-box;
+	display:block;
+}
+
+.item-order div{
+	display:inline-block;
+}
+
+.n-button{
+	right: 0;
+	margin-left: 35%;
+}
+
+.item-delete{
+	color: red;
+	width: 10%;
+	text-align: right;
+}
+
+.item-delete:hover{
+	cursor: pointer;
+}
+
+.item-title{
+	width: 75%;
+}
+
+.item-price{
+	width: 10%;

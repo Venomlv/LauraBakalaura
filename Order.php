@@ -20,5 +20,20 @@ class Order
 		$sql = "INSERT INTO orders (oid,uid,tid) VALUES (NULL, '$uid', '$id')";
 		$result = $db->query($sql);		
 	}
-
+	
+	public static function GetBasket($uid)
+	{
+		$db = Db::getConnection();
+		$sql = "SELECT rid,rnamelv,rnameru,rprice FROM orders, roses WHERE tid = rid AND uid = $uid";
+		$result = $db->query($sql);		
+		
+		return $result;
+	}
+	
+	public static function DeleteItem($id, $uid)
+	{
+		$db = Db::getConnection();
+		$sql = "DELETE FROM orders WHERE tid = $id AND uid = $uid";
+		$result = $db->query($sql);
+	}
 }

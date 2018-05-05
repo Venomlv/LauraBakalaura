@@ -16,4 +16,20 @@ $(document).ready(function(){
 				$("#do-like i").toggleClass('fas');
 			});
 	});
+	
+	$("#delete-item").on('click', function(){
+		var id = $(this).attr("data-id"),
+			deleteId = {theid: id},
+			el = $(this).parent();
+		
+		$.post(window.location.href, deleteId, function(){
+			el.hide();
+		});
+	});
+	
+	$("#do-progress").on('click', function(){
+		var doProgress = {progress: true};
+		
+		$.post(window.location.href, doProgress);
+	});
 });
