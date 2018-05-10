@@ -6,31 +6,21 @@
 	require_once('db.php'); 
 	require_once('dictionary.php'); 
 	require_once('Rozes.php'); 
+	require_once('header.php');
+	require_once('language.php');
 ?>
 
 <body class="maxSize">
 	<div id="overlay" class="maxSize"></div>
 	<div id="lending" class="maxSize">
-		<div class="language">
-		<?php echo isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "<a href=\"/?lang=lv\">LV</a>" :  "<a href=\"/?lang=ru\">RU</a>"; ?>
-		<?php $currentlang = isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "?lang=ru" : ""; ?>
-		</div>
 		<div id="title">
 			<?php echo $betterflowers; ?>
 		</div>
-		<div id="menu">
-			<a href="<?php echo $href2.''.$currentlang; ?>"><?php echo $about; ?></a>
-			<a href="<?php echo $href3.''.$currentlang; ?>"><?php echo $newrozes; ?></a>
-			<a href="<?php echo $href7.''.$currentlang; ?>"><?php echo $popular; ?></a>
-			<a href="<?php echo $href1.''.$currentlang; ?>"><?php echo $catalog; ?></a>
-			<a href="<?php echo $href4.''.$currentlang; ?>"><?php echo $contacts; ?></a>
-			<?php if(!isset($_SESSION['user'])):?>
-				<a href="<?php echo $href5.''.$currentlang; ?>"><i class="fas fa-user-plus"></i></a>
-			<?php else: ?>
-				<a href="<?php echo $href6.''.$currentlang; ?>"><i class="fas fa-shopping-cart"></i></a>
-			<?php endif; ?>
-		</div>
-		<a href="<?php echo $href1; ?>"><button><?php echo $next; ?></button></a>
+		<a href="/catalog">
+			<button type="button" class="btn btn-primary btn-lg btn-abs">
+				<?php echo $next; ?>
+			</button>
+		</a>
 	</div>
 </body>
 
