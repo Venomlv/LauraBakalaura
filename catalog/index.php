@@ -12,7 +12,7 @@
 	<div id="lending" class="maxSize">
 		<div id="snow">
 			<?php $catg = Rozes::getCategories(); foreach($catg as $ct): ?>
-			<a <?php if(isset($_GET['cat']) && $ct['cid'] == $_GET['cat']) echo 'class="active"'; ?> href="/catalog/?cat=<?php echo $ct['cid']; ?>"><?php echo $ct['cname']; ?></a>
+			<a <?php if(isset($_GET['cat']) && $ct['cid'] == $_GET['cat']) echo 'class="active"'; ?> href="/catalog/?cat=<?php echo $ct['cid'].'&'.$currentlang; ?>"><?php echo $ct['cname']; ?></a>
 			<?php endforeach; ?>
 		</div>
 		
@@ -31,7 +31,7 @@
 						<h5 class="card-title">
 							<?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rnameru'] : $roze['rnamelv']; ?>
 						</h5>
-						<a href="/view/?id=<?php echo $roze['rid']; ?>" class="btn btn-primary"><?php echo $gotoroze; ?></a>
+						<a href="/view/?id=<?php echo $roze['rid'].'&'.$currentlang; ?>" class="btn btn-primary"><?php echo $gotoroze; ?></a>
 					</div>
 				</div>
 			<?php endforeach; ?>	
