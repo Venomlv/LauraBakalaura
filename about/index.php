@@ -12,7 +12,7 @@
 <body class="maxSize">
 	<div id="aboutoverlay" class="maxSize"></div>
 	<div id="lending" class="maxSize">
-		<div id="aboutme">
+		<div id="aboutme" class="mt30pct">
 			<?php echo $aboutme; ?>
 		</div>
 	</div>

@@ -10,7 +10,7 @@
 }
 	
 body{
-	background-color: #000;
+	background-color: #000!important;
 }
 
 #lending, #overlay, #aboutoverlay, #contactoverlay{
@@ -34,6 +34,7 @@ body{
 	right: 0;
 	top: 0;
 	position: absolute;
+	z-index: 20;
 }
 
 #menu > a{
@@ -56,35 +57,14 @@ body{
 	font-size: 45pt;
 	float: left;
 	margin-left: 10%;
-	margin-top: 15%;
+	margin-top: 16%;
 	color: #FFF;
 }
 
 #aboutme{
 	font-size: 32pt;
 	font-weight: 500;
-	margin-top: 8%;
-}
-
-button{
-	width: 200px;
-	padding: 15px 20px;
-	border-radius: 25px;
-	font-weight:bold;
-	font-size: 15pt;
-	color: #FFF;
-	background: blue;
-	border: 3px solid blue;
-	position: absolute;
-	bottom: 0;
-	margin-bottom: 12%;
-	right: 25%;
-}
-button:hover{
-	color: orange;
-	background: #FFF;
-	border-color: #FFF;
-	cursor: pointer;
+	margin-top: 15%;
 }
 
 *:hover, img, button, a{
@@ -194,7 +174,7 @@ div.cost{
 
 div#snow {
 	width: 200px;
-	position: absolute;
+	position: fixed;
 	top: 45%;
 	margin-top: -170px;
 	margin-left: 20px;
@@ -214,6 +194,8 @@ div#snow a:hover{
 div.language{
 	margin: 50px;
 	font-weight: bold;
+	z-index: 20;
+	position: absolute;
 }
 
 div.language a{
@@ -417,4 +399,43 @@ button, input, *:hover {
 	width: 100%;
 	overflow-y: auto;
 	height: 250px;
+}
+
+/*-----NEW-----*/
+
+.btn-abs {
+	position: absolute;
+	right: 26%;
+	bottom: 26%;
+}
+
+.btn-lg {
+	width: 200px;
+}
+
+.mt30pct {
+	margin-top: 12%!important;
+	font-size: 25pt!important;
+}
+
+.four {
+	-webkit-column-count: 4!important;
+	-moz-column-count: 4!important;
+	column-count: 4!important;
+	margin-top: 10%;
+	margin-left: 2%;
+}
+
+.withMenu {
+	margin-top: 7%;
+	margin-left: 250px;
+}
+
+#tk-menu {
+	height: 50px;
+	position: relative;
+}
+
+.card-img-top {
+	max-height: 280px;
 }
