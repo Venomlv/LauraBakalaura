@@ -10,48 +10,31 @@
 <body class="maxSize">
 	<div id="overlay" class="maxSize"></div>
 	<div id="lending" class="maxSize">
-		<div class="language">
-		<?php echo isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "<a href=\"/catalog/?lang=lv\">LV</a>" :  "<a href=\"/catalog/?lang=ru\">RU</a>"; ?>
-		<?php $currentlang = isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "?lang=ru" : ""; ?>
-		<?php $inside = isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "&lang=ru" : "&lang=lv"; ?>
-		</div>
-		<div id="menu">
-			<a href="<?php echo $href2.''.$currentlang; ?>"><?php echo $about; ?></a>
-			<a href="<?php echo $href3.''.$currentlang; ?>"><?php echo $newrozes; ?></a>
-			<a href="<?php echo $href7.''.$currentlang; ?>"><?php echo $popular; ?></a>
-			<a class="active" href="<?php echo $href1.''.$currentlang; ?>"><?php echo $catalog; ?></a>
-			<a href="<?php echo $href4.''.$currentlang; ?>"><?php echo $contacts; ?></a>
-			<?php if(!isset($_SESSION['user'])):?>
-				<a href="<?php echo $href5.''.$currentlang; ?>"><i class="fas fa-user-plus"></i></a>
-			<?php else: ?>
-				<a href="<?php echo $href6.''.$currentlang; ?>"><i class="fas fa-shopping-cart"></i></a>
-			<?php endif; ?>
-		</div>
 		<div id="snow">
 			<?php $catg = Rozes::getCategories(); foreach($catg as $ct): ?>
-			<a <?php if(isset($_GET['cat']) && $ct['cid'] == $_GET['cat']) echo 'class="active"'; ?> href="/catalog/?cat=<?php echo $ct['cid'].''.$inside; ?>"><?php echo $ct['cname']; ?></a>
+			<a <?php if(isset($_GET['cat']) && $ct['cid'] == $_GET['cat']) echo 'class="active"'; ?> href="/catalog/?cat=<?php echo $ct['cid']; ?>"><?php echo $ct['cname']; ?></a>
 			<?php endforeach; ?>
 		</div>
-		<div id="mainBlock">
-		<?php if(isset($_GET['cat'])): ?>
-		<?php $rozes = Rozes::getCategoryRozes($_GET['cat']); foreach($rozes as $roze): ?>
-			<a href="/view/?id=<?php echo $roze['rid'].''.$inside; ?>">
-			<div class="rozesBlock">
-				<div class="rozesThumbnail"><img src="/img/rozes/<?php echo $roze['rimage']; ?>"></div>
-				<div class="rozesName"><?php echo $roze['rnamelv']; ?></div>
-			</div>
-			</a>
-		<?php endforeach; ?>
-		<?php else: ?>
-		<?php $rozes = Rozes::getAllRozes(); foreach($rozes as $roze): ?>
-			<a href="/view/?id=<?php echo $roze['rid'].''.$inside; ?>">
-			<div class="rozesBlock">
-				<div class="rozesThumbnail"><img src="/img/rozes/<?php echo $roze['rimage']; ?>"></div>
-				<div class="rozesName"><?php echo $roze['rnamelv']; ?></div>
-			</div>
-			</a>
-		<?php endforeach; ?>
-		<?php endif; ?>
+		
+		<div id="tk-menu">
+			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/header.php');
+				require_once($_SERVER["DOCUMENT_ROOT"].'/language.php'); ?>
+		</div>
+		<div class="card-columns withMenu">
+			<?php $rozes = isset($_GET['cat']) 
+			? Rozes::getCategoryRozes($_GET['cat']) 
+			: Rozes::getAllRozes();
+			foreach($rozes as $roze): ?>
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="/img/rozes/<?php echo $roze['rimage']; ?>" alt="<?php echo $roze['rnamelv']; ?>">
+					<div class="card-body">
+						<h5 class="card-title">
+							<?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rnameru'] : $roze['rnamelv']; ?>
+						</h5>
+						<a href="/view/?id=<?php echo $roze['rid']; ?>" class="btn btn-primary"><?php echo $gotoroze; ?></a>
+					</div>
+				</div>
+			<?php endforeach; ?>	
 		</div>
 	</div>
 </body>

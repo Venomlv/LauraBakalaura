@@ -16,7 +16,7 @@ class Rozes
 	public static function getTenRozes()
 	{
 		$db = Db::getConnection();
-		$sql = "SELECT * FROM roses ORDER BY rid DESC LIMIT 6";
+		$sql = "SELECT * FROM roses ORDER BY rid DESC LIMIT 8";
 		$result = $db->query($sql);		
 		
 		return $result;
