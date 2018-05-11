@@ -10,7 +10,8 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$aboutme = '"Добрый день, дорогой поситететь.<br>
 	Меня зовут Лаура, я являюсь<br> владелицей магазина <b font-color"orange">Rozes no Latvijas</b>.<br>
 	Учусь в Даугавпилсском <br>Университете на программиста"';
-	$mytele = '+37120123224';
+	$mytele = 'Edgars: +3712887640<br>Gaļina: +37122342066<br>E-pasts- edgar.turin96@gmail.com <br>
+	facebook: @saltanata.svente<br> instagram: saltanata_svente <br> vk: vk.com/saltanata_svente';
 	$cost = 'Стоит: ';
 	$vel = 'Ещё информция: ';
 	$reg = 'Присоедениться';
