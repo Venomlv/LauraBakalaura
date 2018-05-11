@@ -31,7 +31,7 @@
 						<h5 class="card-title">
 							<?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $roze['rnameru'] : $roze['rnamelv']; ?>
 						</h5>
-						<a href="/view/?id=<?php echo $roze['rid'].'&'.$currentlang; ?>" class="btn btn-primary"><?php echo $gotoroze; ?></a>
+						<a href="/view/?id=<?php echo $roze['rid']; if($currentlang) echo '&'.$currentlang; ?>" class="btn btn-primary"><?php echo $gotoroze; ?></a>
 					</div>
 				</div>
 			<?php endforeach; ?>	

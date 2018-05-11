@@ -6,7 +6,9 @@
 	require_once($_SERVER["DOCUMENT_ROOT"].'/dictionary.php'); 
 	require_once($_SERVER["DOCUMENT_ROOT"].'/Rozes.php');
 	require_once($_SERVER["DOCUMENT_ROOT"].'/Order.php');
-	require_once($_SERVER["DOCUMENT_ROOT"].'/User.php');  	
+	require_once($_SERVER["DOCUMENT_ROOT"].'/User.php');
+	require_once($_SERVER["DOCUMENT_ROOT"].'/header.php');
+	require_once($_SERVER["DOCUMENT_ROOT"].'/language.php');  	
 ?>
 
 <?php
@@ -28,51 +30,56 @@
 <body class="maxSize">
 	<div id="overlay" class="maxSize"></div>
 	<div id="lending" class="maxSize">
-		<div class="language">
-		<?php echo isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "<a href=\"/catalog/?lang=lv\">LV</a>" :  "<a href=\"/catalog/?lang=ru\">RU</a>"; ?>
-		<?php $currentlang = isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "?lang=ru" : ""; ?>
-		<?php $inside = isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "&lang=ru" : "&lang=lv"; ?>
-		</div>
-		<div id="menu">
-			<a href="<?php echo $href2.''.$currentlang; ?>"><?php echo $about; ?></a>
-			<a href="<?php echo $href3.''.$currentlang; ?>"><?php echo $newrozes; ?></a>
-			<a href="<?php echo $href7.''.$currentlang; ?>"><?php echo $popular; ?></a>
-			<a class="active" href="<?php echo $href1.''.$currentlang; ?>"><?php echo $catalog; ?></a>
-			<a href="<?php echo $href4.''.$currentlang; ?>"><?php echo $contacts; ?></a>
-			<?php if(!isset($_SESSION['user'])):?>
-				<a href="<?php echo $href5.''.$currentlang; ?>"><i class="fas fa-user-plus"></i></a>
-			<?php else: ?>
-				<a href="<?php echo $href6.''.$currentlang; ?>"><i class="fas fa-shopping-cart"></i></a>
-			<?php endif; ?>
-		</div>
+	
 		<div id="snow">
 			<?php $catg = Rozes::getCategories(); foreach($catg as $ct): ?>
 			<a <?php if(isset($_GET['cat']) && $ct['cid'] == $_GET['cat']) echo 'class="active"'; ?> href="/catalog/?cat=<?php echo $ct['cid'].''.$inside; ?>"><?php echo $ct['cname']; ?></a>
 			<?php endforeach; ?>
 		</div>
-		<div id="mainBlock">
-			<div id="mainInside" class="basket-list">
-				<div class="item-list">
-				<?php 
-					$orderlist = array(); 
-					$orderlist = Order::GetBasket($_SESSION['user']); 
-					foreach($orderlist as $order): ?>
-					<div class="item-order">
-						<div class="item-title">
-							<a href="/view/?id=<?php echo $order['rid']; ?>">
-								<?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $order['rnameru'] : $order['rnamelv']; ?>
-							</a>
-						</div>
-						<div class="item-price">
-							<?php echo $order['rprice'].' €'; ?>
-						</div>
-						<div class="item-delete" id="delete-item" data-id="<?php echo $order['rid']; ?>">
-							<i class="fas fa-trash-alt"></i>
-						</div>
+		
+		<div class="row justify-content-center rozes-view">
+			<div class="col-6">
+				<?php $orderlist = array(); 
+				      $orderlist = Order::GetBasket($_SESSION['user']); 
+					  if(Order::GetOrdersCount($_SESSION['user']) > 0): ?>
+				<div class="card">
+					<div class="card-header">
+						<?php echo $groza; ?>
 					</div>
-				<?php endforeach; ?>
+					<div class="card-body">
+						<?php foreach($orderlist as $order): ?>
+							<a href="/view/?id=<?php echo $order['rid']; 
+							if($currentlang) echo '&'.$currentlang;?>" class="td">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item active" aria-current="page">
+										<?php echo isset($_GET['lang'])&&$_GET['lang'] == 'ru' ? $order['rnameru'] : $order['rnamelv']; ?>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">
+										<?php echo $order['rprice'].'€'; ?>
+									</li>
+									<div class="item-delete" id="delete-item" data-id="<?php echo $order['rid']; ?>">
+										<i class="fas fa-trash-alt"></i>
+									</div>
+								</ol>
+							</nav>
+							</a>
+						<?php endforeach;?>
+					<button type="button" class="btn btn-success" id="do-progress">
+						<?php echo $zakaz; ?>
+					</button>
+					</div>
 				</div>
-				<button class="order-button n-button" id="do-progress"><?php echo $zakaz; ?></button>
+				<?php else: ?>
+				<div class="card">
+					<div class="card-header">
+						<?php echo $kludaName; ?>
+					</div>
+					<div class="card-body">
+						<?php echo $grozakluda; ?>			
+					</div>
+				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
