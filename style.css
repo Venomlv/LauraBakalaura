@@ -377,15 +377,7 @@ button, input, *:hover {
 	margin-left: 35%;
 }
 
-.item-delete{
-	color: red;
-	width: 10%;
-	text-align: right;
-}
 
-.item-delete:hover{
-	cursor: pointer;
-}
 
 .item-title{
 	width: 75%;
@@ -438,4 +430,47 @@ button, input, *:hover {
 
 .card-img-top {
 	max-height: 280px;
+}
+
+.rozes-view {
+	margin: 15% 0px 0px!important;
+}
+
+.rozes-text {
+	margin: 0px!important;
+}
+
+.rozes-padding {
+	padding-left: 0px!important;
+	padding-right: 0px!important;
+}
+
+.mgtop15 {
+	margin-top: 15px;
+}
+
+#do-like, #do-order {
+	margin-top: 15px;
+}
+
+#do-progress {
+	margin-left: 42%;
+}
+
+.item-delete{
+	color: red;
+	right: 20px;
+	position: absolute;
+}
+
+.item-delete:hover{
+	cursor: pointer;
+}
+
+ol.breadcrumb {
+	position: relative;
+}
+
+.td {
+	text-decoration: none!important;
 }
