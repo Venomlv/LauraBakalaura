@@ -29,6 +29,8 @@ if(isset($_GET['lang'])&&$_GET['lang'] == "ru")
 	$manpatik = 'Мне нравится';
 	$popular = 'Популярные';
 	$gotoroze = 'Перейти';
+	$groza = 'Корзина';
+	$grozakluda = 'Корзина пуста';
 }
 else
 {
@@ -65,4 +67,6 @@ else
 	$manpatik = 'Man patīk';
 	$popular = 'Populārākās';
 	$gotoroze = 'Pāriet';
+	$groza = 'Groza';
+	$grozakluda = 'Groza ir tukša';
 }

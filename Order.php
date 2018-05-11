@@ -43,4 +43,14 @@ class Order
 		$sql = "DELETE FROM orders WHERE uid = $uid";
 		$result = $db->query($sql);
 	}
+	
+	public static function GetOrdersCount($uid)
+	{
+		$db = Db::getConnection();
+		$sql = "SELECT COUNT(*) FROM orders WHERE uid = $uid";
+		$result = $db->query($sql);			
+		$order = $result->fetch_assoc();
+		
+		return $order['COUNT(*)'];
+	}
 }
