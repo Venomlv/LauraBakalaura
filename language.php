@@ -13,7 +13,7 @@
 		}	
 		else
 		{
-			echo "<a href=\"$url?lang=ru\">LV</a>";
+			echo "<a href=\"$url?lang=ru\">RU</a>";
 		}
 	?>
 </div>
