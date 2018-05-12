@@ -14,7 +14,7 @@
 			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/header.php');
 				require_once($_SERVER["DOCUMENT_ROOT"].'/language.php'); ?>
 		</div>
-		<div class="card-columns four">
+		<div class="card-columns four"><!--Здесь он выводит розы пока они есть в базе по определённому условию-->
 			<?php $rozes = Rozes::GetPopularRozes(); foreach($rozes as $roze): ?>
 				<div class="card" style="width: 18rem;">
 					<img class="card-img-top" src="/img/rozes/<?php echo $roze['rimage']; ?>" alt="<?php echo $roze['rnamelv']; ?>">

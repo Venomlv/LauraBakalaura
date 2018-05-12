@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="lv">
 <?php
-	$_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__);
-	require_once('head.php');
+	$_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__); //Корневую папку сервера определеяем 
+	require_once('head.php'); //Подключаем все нужны для работы страницы файлы
 	require_once('db.php'); 
 	require_once('dictionary.php'); 
 	require_once('Rozes.php'); 

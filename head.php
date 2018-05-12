@@ -11,4 +11,5 @@
 	<title>Internet veikals</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php session_start(); $currentlang = isset($_GET['lang'])&&$_GET['lang'] == "ru" ? "?lang=ru" : ""; ?>
+	<!--Включаем сессию на всех страницах. Определяем какой язык сейчас на сайте-->
 </head>

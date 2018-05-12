@@ -15,7 +15,7 @@
 			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/header.php');
 				require_once($_SERVER["DOCUMENT_ROOT"].'/language.php'); ?>
 		</div>
-		<div class="card-columns four">
+		<div class="card-columns four"><!--Выводит все розы из базы по определённому условию-->
 			<?php $rozes = Rozes::GetTenRozes(); foreach($rozes as $roze): ?>
 				<div class="card" style="width: 18rem;">
 					<img class="card-img-top" src="/img/rozes/<?php echo $roze['rimage']; ?>" alt="<?php echo $roze['rnamelv']; ?>">
