@@ -12,18 +12,23 @@
 	<div id="lending" class="maxSize">
 		<div id="snow">
 			<?php $catg = Rozes::getCategories(); foreach($catg as $ct): ?>
-			<a <?php if(isset($_GET['cat']) && $ct['cid'] == $_GET['cat']) echo 'class="active"'; ?> href="/catalog/?cat=<?php echo $ct['cid'].'&'.$currentlang; ?>"><?php echo $ct['cname']; ?></a>
+			<!--Если категория в которой мы сейчас равна названию категории в списке, то её название жирным шрифтом как активное-->
+				<a <?php if(isset($_GET['cat']) && $ct['cid'] == $_GET['cat']) echo 'class="active"'; ?> href="/catalog/?cat=<?php echo $ct['cid']; if ($currentlang) echo '&'.$currentlang; ?>"><?php echo $ct['cname']; ?></a>
 			<?php endforeach; ?>
 		</div>
 		
+		<!--Здесь выводит менюшка и язык, для того, чтобы они не плыли вниз с розами вместе-->
 		<div id="tk-menu">
 			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/header.php');
 				require_once($_SERVER["DOCUMENT_ROOT"].'/language.php'); ?>
 		</div>
+		
+		<!--Выводит все розы из базы по определённому условию, либо все розы, либо определённой категории-->
 		<div class="card-columns withMenu">
 			<?php $rozes = isset($_GET['cat']) 
 			? Rozes::getCategoryRozes($_GET['cat']) 
 			: Rozes::getAllRozes();
+			//Этот цикл выводит пока есть что выводить
 			foreach($rozes as $roze): ?>
 				<div class="card" style="width: 18rem;">
 					<img class="card-img-top" src="/img/rozes/<?php echo $roze['rimage']; ?>" alt="<?php echo $roze['rnamelv']; ?>">
